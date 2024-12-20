@@ -1,0 +1,67 @@
+{
+  "name": "create-q-uniapp",
+  "type": "module",
+  "version": "1.13.1",
+  "packageManager": "pnpm@8.15.1",
+  "description": "An easy way to start a q-uniapp project",
+  "author": "uglyp",
+  "license": "MIT",
+  "homepage": "https://github.com/uglyp/create-q-uniapp#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uglyp/create-q-uniapp.git"
+  },
+  "bugs": "https://github.com/uglyp/create-q-uniapp/issues",
+  "keywords": [
+    "uni",
+    "uni-app",
+    "q-uniapp",
+    "create-q-uniapp",
+    "cli",
+    "vue",
+    "miniapp"
+  ],
+  "sideEffects": false,
+  "bin": {
+    "create-q-uniapp": "outfile.cjs"
+  },
+  "files": [
+    "outfile.cjs"
+  ],
+  "scripts": {
+    "build": "node scripts/build.js",
+    "dev": "node outfile.cjs",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp",
+    "typecheck": "tsc --noEmit",
+    "up": "cd ./template && pnpx taze@latest major -w -r && cd ./base && pnpx @dcloudio/uvm@latest --manager pnpm"
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.21.12",
+    "@antfu/utils": "^0.7.7",
+    "@types/ejs": "^3.1.5",
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^18.19.11",
+    "@types/prompts": "^2.4.9",
+    "@uni-helper/eslint-config": "^0.0.5",
+    "bumpp": "^9.3.0",
+    "ejs": "^3.1.9",
+    "esbuild": "^0.18.20",
+    "eslint": "^8.56.0",
+    "kolorist": "^1.8.0",
+    "lint-staged": "^15.2.1",
+    "minimist": "^1.2.8",
+    "pnpm": "^8.15.1",
+    "prompts": "^2.4.2",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "^5.3.3"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
